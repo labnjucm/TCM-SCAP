@@ -1,0 +1,24 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-1.1.x"]
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  passwordHash String
+  role         String   @default("user")  // "user" | "admin"
+  canDocking   Boolean  @default(false)
+  canMD        Boolean  @default(false)
+  canOrca      Boolean  @default(false)
+  createdAt    DateTime @default(now())
+
+  @@map("users")
+}
+
+

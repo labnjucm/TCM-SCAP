@@ -1,0 +1,11 @@
+! B3LYP D3BJ def2-SVP Opt TightSCF
+
+%pal nprocs 4 end
+%maxcore 2048
+
+* xyz 0 1
+O   0.000000   0.000000   0.000000
+H   0.000000   0.757160   0.586260
+H   0.000000  -0.757160   0.586260
+*
+

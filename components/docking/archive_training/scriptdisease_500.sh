@@ -1,0 +1,14 @@
+python -m inference --config default_inference_args.yaml  --protein_ligand_csv data/disease_500_1213.csv --out_dir results/disease_500/1213
+python -m inference --config default_inference_args.yaml  --protein_ligand_csv data/disease_500_baicalein.csv --out_dir results/disease_500/baicalein
+sleep 5m
+python -m inference --config default_inference_args.yaml  --protein_ligand_csv data/disease_500_Baicalin.csv --out_dir results/disease_500/Baicalin
+python -m inference --config default_inference_args.yaml  --protein_ligand_csv data/disease_500_betaD.csv --out_dir results/disease_500/betaD
+sleep 5m
+python -m inference --config default_inference_args.yaml  --protein_ligand_csv data/disease_500_betas.csv --out_dir results/disease_500/betas
+python -m inference --config default_inference_args.yaml  --protein_ligand_csv data/disease_500_Cavidine.csv --out_dir results/disease_500/Cavidine
+sleep 5m
+python -m inference --config default_inference_args.yaml  --protein_ligand_csv data/disease_500_coniferin.csv --out_dir results/disease_500/coniferin
+python -m inference --config default_inference_args.yaml  --protein_ligand_csv data/disease_500_Cycloartenol.csv --out_dir results/disease_500/Cycloartenol
+sleep 5m
+python -m inference --config default_inference_args.yaml  --protein_ligand_csv data/disease_500_gond.csv --out_dir results/disease_500/gond
+python -m inference --config default_inference_args.yaml  --protein_ligand_csv data/disease_500_Stig.csv --out_dir results/disease_500/Stig

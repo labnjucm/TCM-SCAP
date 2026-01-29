@@ -1,0 +1,112 @@
+# HerbDock 推理精简版依赖
+# 仅包含推理所需的最小依赖，移除了所有训练相关库
+
+# =============================================================================
+# 核心依赖
+# =============================================================================
+
+# PyTorch (推理核心)
+--extra-index-url https://download.pytorch.org/whl/cu117
+torch==1.13.1+cu117
+
+# PyTorch Geometric (图神经网络)
+--find-links https://pytorch-geometric.com/whl/torch-1.13.1+cu117.html
+torch-geometric==2.2.0
+torch-cluster==1.6.0+pt113cu117
+torch-scatter==2.1.0+pt113cu117
+torch-sparse==0.6.16+pt113cu117
+torch-spline-conv==1.2.1+pt113cu117
+
+# =============================================================================
+# 科学计算与化学
+# =============================================================================
+
+# RDKit (分子处理)
+rdkit==2022.03.3
+
+# NumPy & SciPy
+numpy>=1.21.0,<2.0.0
+scipy==1.12.0
+
+# ProDy (蛋白质结构分析)
+prody==2.2.0
+
+# NetworkX (图处理)
+networkx==2.8.4
+
+# Pandas (数据处理)
+pandas==1.5.1
+
+# Scikit-learn (辅助工具)
+scikit-learn==1.1.0
+
+# =============================================================================
+# 模型相关
+# =============================================================================
+
+# e3nn (等变神经网络)
+e3nn==0.5.0
+
+# ESM & OpenFold (蛋白质语言模型，用于嵌入生成)
+fair-esm[esmfold]==2.0.0
+openfold@git+https://github.com/aqlaboratory/openfold.git@4b41059694619831a7db195b7e0988fc4ff3a307
+
+# DLLogger (仅用于ESM/OpenFold内部，不是训练日志)
+dllogger@git+https://github.com/NVIDIA/dllogger.git
+
+# =============================================================================
+# 界面与工具
+# =============================================================================
+
+# Gradio (Web界面)
+gradio>=3.50.0
+
+# PyYAML (配置文件解析)
+pyyaml>=6.0
+
+# tqdm (进度条)
+tqdm>=4.65.0
+
+# =============================================================================
+# 可选依赖 (如果不需要某些功能可以注释掉)
+# =============================================================================
+
+# ONNX Runtime (如果要使用ONNX推理引擎)
+# onnxruntime-gpu>=1.14.0  # GPU版本
+# onnxruntime>=1.14.0      # CPU版本
+
+# PyBind11 (某些编译组件需要)
+pybind11==2.11.1
+
+# =============================================================================
+# 注意事项
+# =============================================================================
+# 
+# 1. 如果不需要GPU支持，可以使用 CPU 版本的 PyTorch:
+#    pip install torch==1.13.1 --index-url https://download.pytorch.org/whl/cpu
+#
+# 2. 如果遇到 OpenFold 安装问题：
+#    - 先单独安装 torch
+#    - 再安装其他依赖
+#    - 最后安装 openfold
+#
+# 3. 移除的训练相关依赖：
+#    ❌ wandb (训练日志)
+#    ❌ tensorboard (训练可视化)
+#    ❌ pytorch-lightning (训练框架)
+#    ❌ torchmetrics (训练指标)
+#    ❌ deepspeed (分布式训练)
+#    ❌ accelerate (训练加速)
+#    ❌ bitsandbytes (量化训练)
+#
+# 4. 安装顺序建议:
+#    ```bash
+#    # 步骤1: 安装PyTorch
+#    pip install torch==1.13.1+cu117 --extra-index-url https://download.pytorch.org/whl/cu117
+#    
+#    # 步骤2: 安装其他依赖
+#    pip install -r requirements-slim.txt
+#    ```
+#
+# 5. 如需完整训练功能，请使用原始的 requirements.txt
+

@@ -1,0 +1,52 @@
+# HerbDock 推理运行时配置
+# 此配置仅用于推理，不包含任何训练参数
+
+# 模型相关
+model_dir: "workdir/v1.1/score_model"  # 评分模型目录
+ckpt: "best_ema_inference_epoch_model.pt"  # 评分模型检查点
+
+confidence_model_dir: "workdir/v1.1/confidence_model"  # 置信度模型目录（可选）
+confidence_ckpt: "best_model_epoch75.pt"  # 置信度模型检查点
+
+old_score_model: false  # 是否使用旧版评分模型
+old_confidence_model: true  # 是否使用旧版置信度模型
+
+# 设备配置
+device: "auto"  # "auto", "cuda", "cpu"
+
+# 推理参数
+samples_per_complex: 10  # 每个复合物生成的样本数
+inference_steps: 20  # 推理步骤数
+actual_steps: 19  # 实际执行的步骤数（与默认配置一致）
+batch_size: 10  # 批量大小
+
+# 输出配置
+out_dir: "results/inference_output"  # 输出目录
+save_visualisation: false  # 是否保存可视化
+
+# 噪声和采样参数
+no_final_step_noise: true  # 最后一步是否使用噪声
+initial_noise_std_proportion: 1.4601642460337794  # 初始噪声标准差比例（优化值）
+choose_residue: false  # 是否选择特定残基
+
+# 温度采样参数（使用优化后的值，来自默认配置）
+temp_sampling_tr: 1.170050527854316  # 平移温度
+temp_psi_tr: 0.727287304570729  # 平移psi
+temp_sigma_data_tr: 0.9299802531572672  # 平移sigma
+
+temp_sampling_rot: 2.06391612594481  # 旋转温度
+temp_psi_rot: 0.9022615585677628  # 旋转psi
+temp_sigma_data_rot: 0.7464326999906034  # 旋转sigma
+
+temp_sampling_tor: 7.044261621607846  # 扭转温度
+temp_psi_tor: 0.5946212391366862  # 扭转psi
+temp_sigma_data_tor: 0.6943254174849822  # 扭转sigma
+
+# GNINA最小化（可选）
+gnina_minimize: false
+gnina_path: "gnina"
+gnina_log_file: "gnina_log.txt"
+gnina_full_dock: false
+gnina_autobox_add: 4.0
+gnina_poses_to_optimize: 1
+

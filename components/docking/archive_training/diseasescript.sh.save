@@ -1,0 +1,11 @@
+python -m inference --config default_inference_args.yaml  --protein_ligand_csv data/lid_1213.csv --out_dir results/ligand/1213
+python -m inference --config default_inference_args.yaml  --protein_ligand_csv data/ligand_baicalein.csv --out_dir results/ligand/baicalein
+python -m inference --config default_inference_args.yaml  --protein_ligand_csv data/ligand_Baicalin.csv --out_dir results/ligand/Baicalin
+python -m inference --config default_inference_args.yaml  --protein_ligand_csv data/ligand_betaD.csv --out_dir results/ligand/betaD
+python -m inference --config default_inference_args.yaml  --protein_ligand_csv data/ligand_betas.csv --out_dir results/ligand/betas
+python -m inference --config default_inference_args.yaml  --protein_ligand_csv data/ligand_Cavidine.csv --out_dir results/ligand/Cavidine
+python -m inference --config default_inference_args.yaml  --protein_ligand_csv data/ligand_coniferin.csv --out_dir results/ligand/coniferin
+python -m inference --config default_inference_args.yaml  --protein_ligand_csv data/ligand_Cycloartenol.csv --out_dir results/ligand/Cycloartenol
+python -m inference --config default_inference_args.yaml  --protein_ligand_csv data/ligand_gond.csv --out_dir results/ligand/gond
+python -m inference --config default_inference_args.yaml  --protein_ligand_csv data/ligand_Stig.csv --out_dir results/ligand/Stig
+
